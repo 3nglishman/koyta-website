@@ -4,11 +4,27 @@ import Link from "next/link";
 const DIRECTUS_URL = "https://cms.koyta.org";
 
 async function getHomepage() {
-  const res = await fetch(`${DIRECTUS_URL}/items/HomePage`, {
-    next: { revalidate: 60 },
-  });
-  const json = await res.json();
-  return json.data[0]; // Get first item
+  try {
+    const res = await fetch(`${DIRECTUS_URL}/items/HomePage`, {
+      next: { revalidate: 60 },
+    });
+    
+    if (!res.ok) {
+      throw new Error(`Failed to fetch: ${res.status}`);
+    }
+    
+    const json = await res.json();
+    
+    // Handle both array and single object responses
+    if (Array.isArray(json.data)) {
+      return json.data[0] || {};
+    }
+    
+    return json.data || {};
+  } catch (error) {
+    console.error('Error fetching homepage:', error);
+    return {}; // Return empty object as fallback
+  }
 }
 
 function getImageUrl(imageId: string) {
@@ -17,6 +33,15 @@ function getImageUrl(imageId: string) {
 
 export default async function Home() {
   const data = await getHomepage();
+  
+  // If no data, show a fallback message
+  if (!data || Object.keys(data).length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Loading content...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#faf8f5]">
