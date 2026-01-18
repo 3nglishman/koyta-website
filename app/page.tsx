@@ -5,10 +5,10 @@ const DIRECTUS_URL = "https://cms.koyta.org";
 
 async function getHomepage() {
   const res = await fetch(`${DIRECTUS_URL}/items/HomePage`, {
-    next: { revalidate: 60 }, // Revalidate every 60 seconds
+    next: { revalidate: 60 },
   });
   const json = await res.json();
-  return json.data;
+  return json.data[0]; // Get first item
 }
 
 function getImageUrl(imageId: string) {
@@ -35,9 +35,9 @@ export default async function Home() {
         </Link>
       </nav>
 
-      {/* Header Banner - Heart Image (contains logo, title, tagline, heart) */}
+      {/* Header Banner with Site Title and Tagline */}
       {data.heart_image && (
-        <header className="w-full">
+        <header className="relative w-full">
           <Image 
             src={getImageUrl(data.heart_image)}
             alt={data.site_title || "Koyta Hope & Rift Initiative"}
@@ -46,61 +46,123 @@ export default async function Home() {
             className="w-full h-auto"
             priority
           />
+          {/* Overlay text on header if needed */}
+          {data.site_title && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+              <h1 className="text-4xl md:text-6xl font-bold mb-2">{data.site_title}</h1>
+              {data.tagline && (
+                <p className="text-xl md:text-2xl font-light italic">{data.tagline}</p>
+              )}
+            </div>
+          )}
         </header>
       )}
 
-      {/* Gift Section Image */}
-      {data.Gift_image && (
-        <section className="w-full">
-          <Image 
-            src={getImageUrl(data.Gift_image)}
-            alt="Your Gift Has a Journey"
-            width={1920}
-            height={400}
-            className="w-full h-auto"
-          />
+      {/* Gift Section */}
+      <section className="w-full bg-white py-12 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#c41e7f] mb-6">
+            Your Gift Has a Journey
+          </h2>
+          {data.hero_description && (
+            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              {data.hero_description}
+            </p>
+          )}
+        </div>
+        {data.Gift_image && (
+          <div className="mt-8">
+            <Image 
+              src={getImageUrl(data.Gift_image)}
+              alt="Your Gift Journey"
+              width={1920}
+              height={400}
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        )}
+      </section>
+
+      {/* Mission Section */}
+      <section className="w-full bg-[#faf8f5] py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          {data.mission_title && (
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-6 text-gray-800">
+              {data.mission_title}
+            </h2>
+          )}
+          {data.mission_description && (
+            <p className="text-lg text-center text-gray-700 leading-relaxed mb-10 max-w-3xl mx-auto">
+              {data.mission_description}
+            </p>
+          )}
+          {data.hero_image && (
+            <Image 
+              src={getImageUrl(data.hero_image)}
+              alt="Mission in Action"
+              width={1920}
+              height={600}
+              className="w-full h-auto rounded-lg shadow-xl"
+            />
+          )}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="w-full bg-white py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          {data.projects_heading && (
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#c41e7f]">
+              {data.projects_heading}
+            </h2>
+          )}
+          {data.Project_Image && (
+            <Image 
+              src={getImageUrl(data.Project_Image)}
+              alt="Our Projects"
+              width={1920}
+              height={400}
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          )}
+        </div>
+      </section>
+
+      {/* Our Vision Section */}
+      {data.Our_Vision && (
+        <section className="w-full bg-[#faf8f5] py-12 px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+              Our Vision
+            </h2>
+            <div className="prose prose-lg mx-auto text-gray-700">
+              {data.Our_Vision}
+            </div>
+          </div>
         </section>
       )}
 
-      {/* Hero Image */}
-      {data.hero_image && (
-        <section className="w-full">
-          <Image 
-            src={getImageUrl(data.hero_image)}
-            alt="Communities asking for a hand up"
-            width={1920}
-            height={600}
-            className="w-full h-auto"
-          />
-        </section>
-      )}
-
-      {/* Projects Image */}
-      {data.Project_Image && (
-        <section className="w-full">
-          <Image 
-            src={getImageUrl(data.Project_Image)}
-            alt="Our Mission Critical Projects"
-            width={1920}
-            height={400}
-            className="w-full h-auto"
-          />
-        </section>
-      )}
-
-      {/* Call to Action */}
-      <section className="bg-[#c41e7f] py-12 px-6 text-center text-white">
-        <h2 className="text-3xl font-bold mb-4">Ready to Make a Difference?</h2>
-        <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+      {/* Call to Action with Buttons */}
+      <section className="bg-[#c41e7f] py-16 px-6 text-center text-white">
+        <h2 className="text-4xl font-bold mb-4">Ready to Make a Difference?</h2>
+        <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
           Your donation creates real, trackable change in the lives of families 
           who are working hard to build a better future.
         </p>
-        <Link 
-          href="/donate"
-          className="inline-block bg-white text-[#c41e7f] font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-colors"
-        >
-          Donate Now
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link 
+            href="/donate"
+            className="inline-block bg-white text-[#c41e7f] font-bold px-12 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg"
+          >
+            Donate Now
+          </Link>
+          <Link 
+            href="/mission"
+            className="inline-block bg-transparent border-2 border-white text-white font-bold px-12 py-4 rounded-full hover:bg-white hover:text-[#c41e7f] transition-colors text-lg"
+          >
+            Learn More
+          </Link>
+        </div>
       </section>
 
       {/* Footer */}
