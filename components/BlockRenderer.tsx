@@ -1,4 +1,5 @@
 import HeroBlock from './blocks/HeroBlock';
+import TextBlock from './blocks/TextBlock';
 
 interface Block {
   id: number;
@@ -11,17 +12,10 @@ export default function BlockRenderer({ block }: { block: Block }) {
   switch (block.block_type) {
     case 'hero':
       return <HeroBlock content={block.content} />;
+
     case 'text':
-      return (
-        <section className="py-16 px-6 max-w-4xl mx-auto">
-          {block.content?.heading && (
-            <h2 className="text-3xl font-bold text-[#c41e7f] mb-4">{block.content.heading}</h2>
-          )}
-          {block.content?.body && (
-            <div className="prose prose-lg">{block.content.body}</div>
-          )}
-        </section>
-      );
+      return <TextBlock content={block.content} />;
+
     case 'cta':
       return (
         <section className="bg-[#c41e7f] text-white py-16 px-6 text-center">
@@ -33,6 +27,7 @@ export default function BlockRenderer({ block }: { block: Block }) {
           )}
         </section>
       );
+
     default:
       return null;
   }
