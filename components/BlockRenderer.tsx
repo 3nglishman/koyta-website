@@ -4,7 +4,7 @@ import ImageBlock from "./blocks/ImageBlock";
 import CTABlock from "./blocks/CTABlock";
 import IconGridBlock from "./blocks/IconGridBlock";
 
-export default function BlockRenderer({ block }: { block: any }) {
+export default function BlockRenderer({ block }: any) {
   const { collection, item } = block;
 
   switch (collection) {
