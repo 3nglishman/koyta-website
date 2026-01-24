@@ -5,20 +5,20 @@
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
-/* Scale down entire website */
+/* Scale down entire website significantly */
 html {
-  font-size: 14px; /* Default is 16px */
+  font-size: 12px; /* Much smaller base size */
 }
 
 /* Responsive scaling */
 @media (min-width: 768px) {
   html {
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 
 @media (min-width: 1024px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
