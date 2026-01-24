@@ -1,4 +1,6 @@
 export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+export const runtime = 'nodejs';
 
 const DIRECTUS_URL = "https://cms.koyta.org";
 
