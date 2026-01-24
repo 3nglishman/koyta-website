@@ -2,8 +2,8 @@ export default function TextBlock({ content, title }: any) {
   if (!content && !title) return null;
 
   return (
-    <section className="w-full py-16 px-6">
-      <div className="max-w-4xl mx-auto">
+   <section className="w-full py-16 px-6">
+  <div className="max-w-6xl mx-auto">
         {title && (
           <h2 className="text-3xl font-bold text-[#c41e7f] mb-6 text-center">
             {title}
