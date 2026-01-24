@@ -1,3 +1,5 @@
+import IconGridBlock from "./blocks/IconGridBlock";
+import ImageBlock from "./blocks/ImageBlock";
 import HeroBlock from './blocks/HeroBlock';
 import TextBlock from './blocks/TextBlock';
 
@@ -16,6 +18,12 @@ export default function BlockRenderer({ block }: { block: Block }) {
     case 'text':
       return <TextBlock content={block.content} />;
 
+      case "image":
+  return <ImageBlock {...block.content} />;
+ 
+    case "icon_grid":
+  return <IconGridBlock {...block.content} />;     
+  
     case 'cta':
       return (
         <section className="bg-[#c41e7f] text-white py-16 px-6 text-center">
