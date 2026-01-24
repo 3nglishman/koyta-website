@@ -22,7 +22,7 @@ export default function TextBlock({ title, subtitle, content }: TextBlockProps) 
         )}
         {content && (
           <div 
-            className="prose prose-lg md:prose-xl lg:prose-2xl max-w-none text-gray-800 leading-relaxed"
+            className="prose prose-lg md:prose-xl lg:prose-2xl max-w-none text-gray-800 leading-relaxed [&_h1]:text-4xl [&_h2]:text-3xl [&_h3]:text-2xl [&_p]:text-lg md:[&_p]:text-xl"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         )}
