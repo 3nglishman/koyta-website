@@ -1,16 +1,21 @@
-type TextBlockProps = {
-  content?: string;
-};
+export default function TextBlock(block: any) {
+  const title = block.title || block.heading;
+  const body = block.content || block.body;
 
-export default function TextBlock({ content }: TextBlockProps) {
-  if (!content) return null;
+  if (!title && !body) return null;
 
   return (
-    <section className="max-w-4xl mx-auto py-12 px-6">
-      <div
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+    <section className="py-16 px-6 max-w-4xl mx-auto text-center">
+      {title && (
+        <h2 className="text-3xl font-bold text-[#c41e7f] mb-6">
+          {title}
+        </h2>
+      )}
+      {body && (
+        <div className="prose prose-lg mx-auto">
+          {body}
+        </div>
+      )}
     </section>
   );
 }
