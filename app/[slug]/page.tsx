@@ -5,13 +5,23 @@ export const runtime = 'nodejs';
 const DIRECTUS_URL = "https://cms.koyta.org";
 
 async function getPage(slug: string) {
-  const res = await fetch(
- `${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=${slug}&fields=id,title,slug,status,blocks.id,blocks.block_type,blocks.content,blocks.sort`,
-    { cache: 'no-store' }
-  );
-
-  const json = await res.json();
-  return json.data?.[0] || null;
+  try {
+    const res = await fetch(
+      `${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=${slug}&fields=id,title,slug,status,blocks.id,blocks.block_type,blocks.content,blocks.sort`,
+      { cache: 'no-store' }
+    );
+    
+    if (!res.ok) {
+      console.error('Fetch failed:', res.status, res.statusText);
+      return null;
+    }
+    
+    const json = await res.json();
+    return json.data?.[0] || null;
+  } catch (error) {
+    console.error('Error fetching page:', error);
+    return null;
+  }
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
