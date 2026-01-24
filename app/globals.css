@@ -7,18 +7,18 @@
 
 /* Scale down entire website significantly */
 html {
-  font-size: 12px; /* Much smaller base size */
+  font-size: 10px; /* Much smaller base size */
 }
 
 /* Responsive scaling */
 @media (min-width: 768px) {
   html {
-    font-size: 13px;
+    font-size: 11px;
   }
 }
 
 @media (min-width: 1024px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
