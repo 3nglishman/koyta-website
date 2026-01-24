@@ -1,44 +1,34 @@
-import SpacerBlock from "./blocks/SpacerBlock";
-import DividerBlock from "./blocks/DividerBlock";
+import CTABlock from "./blocks/CTABlock";
+import IconGridBlock from "./blocks/IconGridBlock";
+import ImageBlock from "./blocks/ImageBlock";
 import HeroBlock from "./blocks/HeroBlock";
 import TextBlock from "./blocks/TextBlock";
-import ImageBlock from "./blocks/ImageBlock";
-import IconGridBlock from "./blocks/IconGridBlock";
-import CTABlock from "./blocks/CTABlock";
+import SpacerBlock from "./blocks/SpacerBlock";
+import DividerBlock from "./blocks/DividerBlock";
 
-type M2ABlock = {
-  id: number;
-  collection: string;
-  item: any;
-};
+export default function BlockRenderer({ block }: { block: any }) {
+  switch (block.block_type) {
+    case "hero":
+      return <HeroBlock {...block} />;
 
-export default function BlockRenderer({ block }: { block: M2ABlock }) {
-  const data = block.item;
+    case "text":
+      return <TextBlock {...block} />;
 
-  if (!data) return null;
+    case "image":
+      return <ImageBlock {...block} />;
 
-  switch (block.collection) {
-    case "hero_blocks":
-      return <HeroBlock content={data} />;
+    case "icon_grid":
+      return <IconGridBlock {...block} />;
 
-    case "text_blocks":
-      return <TextBlock content={data} />;
+    case "cta":
+      return <CTABlock {...block} />;
 
-    case "image_blocks":
-      return <ImageBlock {...data} />;
-
-    case "icon_grid_blocks":
-      return <IconGridBlock {...data} />;
-
-    case "cta_blocks":
-      return <CTABlock {...data} />;
-    
     case "spacer":
       return <SpacerBlock {...block} />;
 
     case "divider":
       return <DividerBlock />;
-    
+
     default:
       return null;
   }
