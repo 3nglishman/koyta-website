@@ -4,3 +4,21 @@
   --font-sans: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
+
+/* Scale down entire website */
+html {
+  font-size: 14px; /* Default is 16px */
+}
+
+/* Responsive scaling */
+@media (min-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
