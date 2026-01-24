@@ -1,24 +1,27 @@
 type TextBlockProps = {
   heading?: string;
-  body?: string;
+  content?: string;
 };
 
-export default function TextBlock({ heading, body }: TextBlockProps) {
-  if (!heading && !body) return null;
+export default function TextBlock({ heading, content }: TextBlockProps) {
+  if (!heading && !content) return null;
 
   return (
-    <section className="w-full py-20 px-8">
-      {heading && (
-        <h2 className="text-3xl font-bold text-[#c41e7f] text-center mb-10">
-          {heading}
-        </h2>
-      )}
+    <section className="w-full py-20 px-6">
+      <div className="max-w-5xl mx-auto">
+        {heading && (
+          <h2 className="text-3xl font-bold text-[#c41e7f] text-center mb-10">
+            {heading}
+          </h2>
+        )}
 
-      {body && (
-        <div className="prose prose-lg max-w-none mx-auto text-center">
-          {body}
-        </div>
-      )}
+        {content && (
+          <div
+            className="prose prose-lg mx-auto text-gray-800"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        )}
+      </div>
     </section>
   );
 }
