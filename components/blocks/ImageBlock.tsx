@@ -11,13 +11,14 @@ export default function ImageBlock({ image, caption }: ImageBlockProps) {
   if (!image) return null;
 
   return (
-    <section className="w-full py-16">
-      <div className="relative w-full h-[70vh] max-h-[900px]">
+    <section className="w-full">
+      <div className="relative w-full">
         <Image
           src={`${DIRECTUS_URL}/assets/${image}`}
           alt={caption || ""}
-          fill
-          className="object-cover"
+          width={1920}
+          height={1080}
+          className="w-full h-auto"
           priority={false}
         />
       </div>
