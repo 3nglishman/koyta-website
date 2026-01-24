@@ -6,7 +6,7 @@ const DIRECTUS_URL = "https://cms.koyta.org";
 
 async function getPage(slug: string) {
   const res = await fetch(
-   `${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=${slug}&deep[blocks]=*&fields=*`,
+ `${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=${slug}&fields=id,title,slug,status,blocks.id,blocks.block_type,blocks.content,blocks.sort`,
     { cache: 'no-store' }
   );
 
