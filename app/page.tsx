@@ -18,12 +18,12 @@ export default async function HomePage() {
   if (!page) return null;
 
   return (
-    <main>
-      {page.blocks
-        ?.sort((a: any, b: any) => (a.sort ?? 0) - (b.sort ?? 0))
-        .map((block: any) => (
-          <BlockRenderer key={block.id} block={block} />
-        ))}
-    </main>
-  );
+  <main>
+    {page.blocks
+      ?.sort((a: any, b: any) => (a.sort ?? 0) - (b.sort ?? 0))
+      .map((block: any) => (
+        <BlockRenderer key={block.id} block={block} />
+      ))}
+  </main>
+);
 }
