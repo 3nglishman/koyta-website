@@ -6,7 +6,7 @@ const DIRECTUS_URL = "https://cms.koyta.org";
 
 async function getPage(slug: string) {
   const res = await fetch(
-  `${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=${slug}&filter[status][_eq]=published&fields=*,blocks.*`,
+`${DIRECTUS_URL}/items/Pages?filter[slug][_eq]=${slug}&fields=*,blocks.*`
   { cache: 'no-store' }
 );
 
@@ -17,9 +17,14 @@ async function getPage(slug: string) {
 export default async function Page({ params }: { params: { slug: string } }) {
   const page = await getPage(params.slug);
 
-  if (!page) {
-    return <h1>404 – Page not found</h1>;
-  }
+ if (!page) {
+  return (
+    <main style={{ padding: 40 }}>
+      <h1>Page exists but data blocked</h1>
+      <pre>{JSON.stringify(page, null, 2)}</pre>
+    </main>
+  );
+}
 
   return (
     <main className="min-h-screen bg-[#faf8f5] px-6 py-12">
