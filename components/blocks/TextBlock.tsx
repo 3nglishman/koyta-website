@@ -1,24 +1,31 @@
 type TextBlockProps = {
-  content: {
-    heading?: string;
-    body?: string;
-    background_color?: 'white' | 'gray' | 'pink';
-  };
+  title?: string;
+  subtitle?: string;
+  content?: string;
 };
 
-export default function TextBlock({ content }: TextBlockProps) {
-  const { heading, body, background_color = 'white' } = content || {};
-  
-  const bgClass = {
-    white: 'bg-white',
-    gray: 'bg-[#faf8f5]',
-    pink: 'bg-pink-50'
-  }[background_color];
+export default function TextBlock({ title, subtitle, content }: TextBlockProps) {
+  if (!title && !subtitle && !content) return null;
 
   return (
-    <section className={`w-full py-24 px-6 ${bgClass}`}>
-      {heading && <h2 className="text-3xl font-bold text-[#c41e7f] mb-4 text-center">{heading}</h2>}
-      {body && <div className="prose prose-lg text-gray-700 max-w-4xl mx-auto text-center">{body}</div>}
+    <section className="w-full py-20 px-6">
+      <div className="max-w-5xl mx-auto">
+        {title && (
+          <h2 className="text-3xl font-bold text-[#c41e7f] text-center mb-4">
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p className="text-xl text-gray-600 text-center mb-10">
+            {subtitle}
+          </p>
+        )}
+        {content && (
+          <div className="prose prose-lg mx-auto text-gray-800 whitespace-pre-wrap">
+            {content}
+          </div>
+        )}
+      </div>
     </section>
   );
 }
