@@ -9,7 +9,7 @@ export default function TextBlock({ title, subtitle, content }: TextBlockProps) 
 
   return (
     <section className="w-full py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {title && (
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#c41e7f] text-center mb-4">
             {title}
@@ -22,7 +22,7 @@ export default function TextBlock({ title, subtitle, content }: TextBlockProps) 
         )}
         {content && (
           <div 
-            className="prose prose-lg md:prose-xl lg:prose-2xl max-w-none text-gray-800 leading-relaxed [&_h1]:text-4xl [&_h2]:text-3xl [&_h3]:text-2xl [&_p]:text-lg md:[&_p]:text-xl"
+            className="prose prose-lg md:prose-xl lg:prose-2xl mx-auto text-gray-800 leading-relaxed [&_h1]:text-4xl [&_h2]:text-3xl [&_h3]:text-2xl [&_p]:text-lg md:[&_p]:text-xl"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         )}
