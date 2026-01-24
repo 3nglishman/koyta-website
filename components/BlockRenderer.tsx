@@ -1,25 +1,21 @@
-import CTABlock from "./blocks/CTABlock";
-import IconGridBlock from "./blocks/IconGridBlock";
-import ImageBlock from "./blocks/ImageBlock";
-import HeroBlock from "./blocks/HeroBlock";
-import TextBlock from "./blocks/TextBlock";
-
 export default function BlockRenderer({ block }: { block: any }) {
-  switch (block.block_type) {
-    case "hero":
-      return <HeroBlock {...block} />;
+  const data = block.item;
 
-    case "text":
-      return <TextBlock {...block} />;
+  switch (block.collection) {
+    case "hero_blocks":
+      return <HeroBlock content={data} />;
 
-    case "image":
-      return <ImageBlock {...block} />;
+    case "text_blocks":
+      return <TextBlock content={data} />;
 
-    case "icon_grid":
-      return <IconGridBlock {...block} />;
+    case "image_blocks":
+      return <ImageBlock {...data} />;
 
-    case "cta":
-      return <CTABlock {...block} />;
+    case "icon_grid_blocks":
+      return <IconGridBlock {...data} />;
+
+    case "cta_blocks":
+      return <CTABlock {...data} />;
 
     default:
       return null;
