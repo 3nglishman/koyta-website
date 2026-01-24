@@ -1,3 +1,5 @@
+import SpacerBlock from "./blocks/SpacerBlock";
+import DividerBlock from "./blocks/DividerBlock";
 import HeroBlock from "./blocks/HeroBlock";
 import TextBlock from "./blocks/TextBlock";
 import ImageBlock from "./blocks/ImageBlock";
@@ -30,7 +32,13 @@ export default function BlockRenderer({ block }: { block: M2ABlock }) {
 
     case "cta_blocks":
       return <CTABlock {...data} />;
+    
+    case "spacer":
+      return <SpacerBlock {...block} />;
 
+    case "divider":
+      return <DividerBlock />;
+    
     default:
       return null;
   }
