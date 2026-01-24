@@ -1,26 +1,27 @@
 import HeroBlock from "./blocks/HeroBlock";
 import TextBlock from "./blocks/TextBlock";
 import ImageBlock from "./blocks/ImageBlock";
-import IconGridBlock from "./blocks/IconGridBlock";
 import CTABlock from "./blocks/CTABlock";
-export default function BlockRenderer({ block }: { block: any }) {
-  const data = block.item;
+import IconGridBlock from "./blocks/IconGridBlock";
 
-  switch (block.collection) {
+export default function BlockRenderer({ block }: { block: any }) {
+  const { collection, item } = block;
+
+  switch (collection) {
     case "hero_blocks":
-      return <HeroBlock content={data} />;
+      return <HeroBlock content={item} />;
 
     case "text_blocks":
-      return <TextBlock content={data} />;
+      return <TextBlock content={item} />;
 
     case "image_blocks":
-      return <ImageBlock {...data} />;
-
-    case "icon_grid_blocks":
-      return <IconGridBlock {...data} />;
+      return <ImageBlock {...item} />;
 
     case "cta_blocks":
-      return <CTABlock {...data} />;
+      return <CTABlock {...item} />;
+
+    case "icon_grid_blocks":
+      return <IconGridBlock {...item} />;
 
     default:
       return null;
