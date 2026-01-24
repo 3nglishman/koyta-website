@@ -1,3 +1,4 @@
+import CTABlock from "./blocks/CTABlock";
 import IconGridBlock from "./blocks/IconGridBlock";
 import ImageBlock from "./blocks/ImageBlock";
 import HeroBlock from "./blocks/HeroBlock";
@@ -25,20 +26,7 @@ export default function BlockRenderer({ block }: { block: Block }) {
       return <IconGridBlock {...block.content} />;
 
     case "cta":
-      return (
-        <section className="bg-[#c41e7f] text-white py-16 px-6 text-center">
-          {block.content?.heading && (
-            <h2 className="text-3xl font-bold mb-4">
-              {block.content.heading}
-            </h2>
-          )}
-          {block.content?.description && (
-            <p className="text-xl mb-8">
-              {block.content.description}
-            </p>
-          )}
-        </section>
-      );
+  return <CTABlock {...block.content} />;
 
     default:
       return (
