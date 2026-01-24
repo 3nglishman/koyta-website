@@ -1,3 +1,8 @@
+import HeroBlock from "./blocks/HeroBlock";
+import TextBlock from "./blocks/TextBlock";
+import ImageBlock from "./blocks/ImageBlock";
+import IconGridBlock from "./blocks/IconGridBlock";
+import CTABlock from "./blocks/CTABlock";
 export default function BlockRenderer({ block }: { block: any }) {
   const data = block.item;
 
