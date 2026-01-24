@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -71,7 +73,6 @@ export default async function Home() {
             className="w-full h-auto"
             priority
           />
-          {/* Overlay text on header if needed */}
           {data.site_title && (
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
               <h1 className="text-4xl md:text-6xl font-bold mb-2">{data.site_title}</h1>
@@ -167,7 +168,7 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Call to Action with Buttons */}
+      {/* Call to Action */}
       <section className="bg-[#c41e7f] py-16 px-6 text-center text-white">
         <h2 className="text-4xl font-bold mb-4">Ready to Make a Difference?</h2>
         <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
