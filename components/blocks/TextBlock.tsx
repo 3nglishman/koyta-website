@@ -21,9 +21,10 @@ export default function TextBlock({ title, subtitle, content }: TextBlockProps) 
           </p>
         )}
         {content && (
-          <div className="prose prose-lg mx-auto text-gray-800 whitespace-pre-wrap">
-            {content}
-          </div>
+          <div 
+            className="prose prose-xl mx-auto text-gray-800 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         )}
       </div>
     </section>
