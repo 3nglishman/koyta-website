@@ -11,7 +11,8 @@ export default function ImageBlock({ image, caption }: ImageBlockProps) {
   if (!image) return null;
 
   return (
-    <section className="py-16 px-6 max-w-6xl mx-auto">
+    <section className="w-full py-16 px-6">
+  <div className="max-w-6xl mx-auto">
       <Image
         src={`${DIRECTUS_URL}/assets/${image}`}
         alt={caption || ""}
