@@ -1,4 +1,3 @@
-// app/components/Header.tsx
 import Link from "next/link";
 
 export default function Header() {
