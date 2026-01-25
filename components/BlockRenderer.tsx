@@ -22,11 +22,19 @@ export default function BlockRenderer({ block }: { block: any }) {
       let parsedContent = block.content;
       if (typeof block.content === 'string') {
         try {
-          // Strip HTML tags if present
-          const cleanContent = block.content.replace(/<[^>]*>/g, '').trim();
+          // Strip HTML tags and decode entities
+          let cleanContent = block.content
+            .replace(/<[^>]*>/g, '') // Remove HTML tags
+            .replace(/&nbsp;/g, ' ') // Replace &nbsp; with space
+            .replace(/&amp;/g, '&')  // Replace &amp; with &
+            .replace(/&lt;/g, '<')   // Replace &lt; with <
+            .replace(/&gt;/g, '>')   // Replace &gt; with >
+            .replace(/&quot;/g, '"') // Replace &quot; with "
+            .trim();
+          
           parsedContent = JSON.parse(cleanContent);
         } catch (e) {
-          console.error('Failed to parse icon_grid content:', e);
+          console.error('Failed to parse icon_grid content:', e, block.content);
           return null;
         }
       }
@@ -46,3 +54,4 @@ export default function BlockRenderer({ block }: { block: any }) {
       return null;
   }
 }
+
