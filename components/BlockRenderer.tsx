@@ -17,8 +17,19 @@ export default function BlockRenderer({ block }: { block: any }) {
     case "image":
       return <ImageBlock {...block} />;
 
-    case "icon_grid":
-      return <IconGridBlock {...block} />;
+    case "icon_grid": {
+      // Parse JSON content if it's a string
+      let parsedContent = block.content;
+      if (typeof block.content === 'string') {
+        try {
+          parsedContent = JSON.parse(block.content);
+        } catch (e) {
+          console.error('Failed to parse icon_grid content:', e);
+          return null;
+        }
+      }
+      return <IconGridBlock heading={block.title} {...parsedContent} />;
+    }
 
     case "cta":
       return <CTABlock {...block} />;
