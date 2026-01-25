@@ -3,12 +3,12 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="w-full bg-[#cc007e] text-white py-8 md:py-12 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-4 gap-4 md:gap-8 lg:gap-12">
         
         {/* Legal Notice Column */}
-        <div className="w-full">
-          <h3 className="text-[#cca300] text-lg md:text-xl font-bold mb-3 md:mb-4">Legal Notice</h3>
-          <div className="space-y-2 md:space-y-3 text-xs md:text-sm leading-relaxed">
+        <div className="w-full min-w-0">
+          <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Legal Notice</h3>
+          <div className="space-y-1 md:space-y-2 lg:space-y-3 text-[10px] md:text-xs lg:text-sm leading-relaxed">
             <p>
               Koyta Hope & Rift Initiative is a nonprofit organization legally incorporated in Canada under the Canada Not-for-profit Corporations Act (CNCA).
             </p>
@@ -24,9 +24,9 @@ export default function Footer() {
         </div>
 
         {/* Contact Column */}
-        <div className="w-full">
-          <h3 className="text-[#cca300] text-lg md:text-xl font-bold mb-3 md:mb-4">Contact</h3>
-          <div className="space-y-1 text-xs md:text-sm">
+        <div className="w-full min-w-0">
+          <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Contact</h3>
+          <div className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
             <p>Koyta Hope & Rift Initiative</p>
             <p>201-46078 Bole Ave,</p>
             <p>Chilliwack, BC V2P 2V8</p>
@@ -36,9 +36,9 @@ export default function Footer() {
         </div>
 
         {/* Navigation Column */}
-        <div className="w-full">
-          <h3 className="text-[#cca300] text-lg md:text-xl font-bold mb-3 md:mb-4">Navigation</h3>
-          <ul className="space-y-1 text-xs md:text-sm">
+        <div className="w-full min-w-0">
+          <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Navigation</h3>
+          <ul className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
             <li><Link href="/" className="hover:text-[#cca300]">Home</Link></li>
             <li><Link href="/about" className="hover:text-[#cca300]">About</Link></li>
             <li><Link href="/services" className="hover:text-[#cca300]">Services</Link></li>
@@ -50,22 +50,22 @@ export default function Footer() {
         </div>
 
         {/* Social Media Column */}
-        <div className="w-full">
-          <h3 className="text-[#cca300] text-lg md:text-xl font-bold mb-3 md:mb-4">Social media</h3>
-          <ul className="space-y-1 text-xs md:text-sm">
+        <div className="w-full min-w-0">
+          <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Social media</h3>
+          <ul className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
             <li>
-              <a href="https://facebook.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#cca300]">
-                <span>📘</span> Facebook
+              <a href="https://facebook.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
+                <span className="text-xs md:text-base">📘</span> <span>Facebook</span>
               </a>
             </li>
             <li>
-              <a href="https://x.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#cca300]">
-                <span>✖️</span> X
+              <a href="https://x.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
+                <span className="text-xs md:text-base">✖️</span> <span>X</span>
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#cca300]">
-                <span>📷</span> Instagram
+              <a href="https://instagram.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
+                <span className="text-xs md:text-base">📷</span> <span>Instagram</span>
               </a>
             </li>
           </ul>
