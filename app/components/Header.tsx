@@ -1,19 +1,26 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="w-full bg-white border-b">
-      {/* THIS CONTAINER MUST MATCH HERO WIDTH */}
+    <header className="w-full bg-white border-b-2 border-[#c41e7f]">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-10 text-sm font-medium text-gray-700">
-          <Link href="/" className="hover:text-[#c41e7f]">Home</Link>
-          <Link href="/volunteer" className="hover:text-[#c41e7f]">Volunteer</Link>
-          <Link href="/mission" className="hover:text-[#c41e7f]">Our Mission</Link>
+        {/* Left Navigation */}
+        <div className="flex gap-8">
+          <Link href="/" className="text-gray-800 hover:text-[#c41e7f] font-medium">
+            Home
+          </Link>
+          <Link href="/volunteer" className="text-gray-800 hover:text-[#c41e7f] font-medium">
+            Volunteer
+          </Link>
+          <Link href="/our-mission" className="text-gray-800 hover:text-[#c41e7f] font-medium">
+            Our Mission
+          </Link>
         </div>
 
-        <Link
-          href="/donate"
-          className="text-sm font-semibold text-[#8a6b4f] hover:text-[#c41e7f]"
+        {/* Right Navigation */}
+        <Link 
+          href="/donate" 
+          className="text-gray-800 hover:text-[#c41e7f] font-medium"
         >
           Donate Here
         </Link>
@@ -21,3 +28,4 @@ export default function Header() {
     </header>
   );
 }
+
