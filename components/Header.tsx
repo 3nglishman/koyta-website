@@ -24,12 +24,14 @@ export default function Header() {
         </div>
 
         {/* Right Navigation */}
-        <Link 
-          href="/donate" 
+        <a 
+          href="https://donate.stripe.com/8x23cx0DQ4RUaDN63i57W00"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[#cc007e] hover:text-[#a0005e] font-medium"
         >
           Donate Here
-        </Link>
+        </a>
       </nav>
     </header>
   );
