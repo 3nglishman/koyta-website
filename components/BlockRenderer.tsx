@@ -22,7 +22,9 @@ export default function BlockRenderer({ block }: { block: any }) {
       let parsedContent = block.content;
       if (typeof block.content === 'string') {
         try {
-          parsedContent = JSON.parse(block.content);
+          // Strip HTML tags if present
+          const cleanContent = block.content.replace(/<[^>]*>/g, '').trim();
+          parsedContent = JSON.parse(cleanContent);
         } catch (e) {
           console.error('Failed to parse icon_grid content:', e);
           return null;
