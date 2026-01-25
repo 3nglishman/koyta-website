@@ -5,6 +5,7 @@ import HeroBlock from "./blocks/HeroBlock";
 import TextBlock from "./blocks/TextBlock";
 import SpacerBlock from "./blocks/SpacerBlock";
 import DividerBlock from "./blocks/DividerBlock";
+import ImageTextBlock from "./blocks/ImageTextBlock";
 
 export default function BlockRenderer({ block }: { block: any }) {
   switch (block.block_type) {
@@ -16,6 +17,9 @@ export default function BlockRenderer({ block }: { block: any }) {
 
     case "image":
       return <ImageBlock {...block} />;
+
+    case "image_text":
+      return <ImageTextBlock {...block} />;
 
     case "icon_grid": {
       // Parse JSON content if it's a string
