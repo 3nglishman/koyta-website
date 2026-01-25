@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#cc007e] text-white py-12 px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="w-full bg-[#cc007e] text-white py-12 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 justify-items-start">
         
         {/* Legal Notice Column */}
-        <div>
+        <div className="w-full">
           <h3 className="text-[#cca300] text-xl font-bold mb-4">Legal Notice</h3>
           <div className="space-y-3 text-sm leading-relaxed">
             <p>
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Column */}
-        <div>
+        <div className="w-full">
           <h3 className="text-[#cca300] text-xl font-bold mb-4">Contact</h3>
           <div className="space-y-1 text-sm">
             <p>Koyta Hope & Rift Initiative</p>
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
 
         {/* Navigation Column */}
-        <div>
+        <div className="w-full">
           <h3 className="text-[#cca300] text-xl font-bold mb-4">Navigation</h3>
           <ul className="space-y-1 text-sm">
             <li><Link href="/" className="hover:text-[#cca300]">Home</Link></li>
@@ -50,7 +50,7 @@ export default function Footer() {
         </div>
 
         {/* Social Media Column */}
-        <div>
+        <div className="w-full">
           <h3 className="text-[#cca300] text-xl font-bold mb-4">Social media</h3>
           <ul className="space-y-1 text-sm">
             <li>
