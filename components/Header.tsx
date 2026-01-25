@@ -20,7 +20,7 @@ export default function Header() {
         {/* Right Navigation */}
         <Link 
           href="/donate" 
-          className="text-gray-800 hover:text-[#c41e7f] font-medium"
+          className="text-[#cc007e] hover:text-[#a0005e] font-medium"
         >
           Donate Here
         </Link>
