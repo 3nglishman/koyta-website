@@ -9,6 +9,12 @@ export default function Header() {
           <Link href="/" className="text-gray-800 hover:text-[#c41e7f] font-medium">
             Home
           </Link>
+          <Link href="/the-kipsigis" className="text-gray-800 hover:text-[#c41e7f] font-medium">
+            The Kipsigis
+          </Link>
+          <Link href="/projects" className="text-gray-800 hover:text-[#c41e7f] font-medium">
+            Projects
+          </Link>
           <Link href="/volunteer" className="text-gray-800 hover:text-[#c41e7f] font-medium">
             Volunteer
           </Link>
