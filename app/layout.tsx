@@ -1,5 +1,6 @@
 import "./globals.css";
-import Header from "../components/Header";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Koyta Hope & Rift Initiative",
@@ -16,8 +17,8 @@ export default function RootLayout({
       <body className="w-full overflow-x-hidden bg-[#faf8f5]">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
 }
-
