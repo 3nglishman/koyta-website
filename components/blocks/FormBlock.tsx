@@ -8,7 +8,7 @@ export default function FormBlock({ content, title, subtitle }: FormBlockProps) 
   if (!content) return null;
 
   // Strip any surrounding paragraph tags that Directus might add
-  const cleanContent = content
+  let cleanContent = content
     .replace(/<p>/g, '')
     .replace(/<\/p>/g, '')
     .replace(/&lt;/g, '<')
@@ -16,6 +16,9 @@ export default function FormBlock({ content, title, subtitle }: FormBlockProps) 
     .replace(/&quot;/g, '"')
     .trim();
 
+  // Make the iframe responsive by removing fixed width and adding responsive classes
+  cleanContent = cleanContent.replace(/width="\d+"/, 'width="100%"');
+  
   return (
     <section className="w-full py-12 md:py-16 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
@@ -32,7 +35,7 @@ export default function FormBlock({ content, title, subtitle }: FormBlockProps) 
         )}
         
         <div 
-          className="w-full"
+          className="w-full overflow-hidden"
           dangerouslySetInnerHTML={{ __html: cleanContent }}
         />
       </div>
