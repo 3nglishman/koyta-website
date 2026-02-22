@@ -14,12 +14,7 @@ export default function CTABlock({ title, subtitle, button_url, link, Download_N
     <section className="bg-[#c41e7f] text-white py-16 px-6 text-center">
       {title && <h2 className="text-4xl font-bold mb-4">{title}</h2>}
       {subtitle && <p className="text-xl mb-8">{subtitle}</p>}
-      
-      <a href={link || button_url || "#"}
-        className="inline-block bg-white text-[#c41e7f] font-bold px-10 py-4 rounded-full hover:bg-gray-100"
-      >
-        {Download_Now || "Download Now"}
-      </a>
+      <a href={link || button_url || "#"} className="inline-block bg-white text-[#c41e7f] font-bold px-10 py-4 rounded-full hover:bg-gray-100">{Download_Now || "Download Now"}</a>
     </section>
   );
 }
