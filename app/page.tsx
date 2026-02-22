@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 import BlockRenderer from "@/components/BlockRenderer";
 
-const DIRECTUS_URL = "https://cms.koyta.org";
+const DIRECTUS_URL = "https://cms.koyta.org"; 
 
 async function getHomepage() {
   const res = await fetch(
