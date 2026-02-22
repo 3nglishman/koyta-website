@@ -3,12 +3,12 @@ import Link from "next/link";
 type CTABlockProps = {
   title?: string;
   subtitle?: string;
-  button_label?: string;
   button_url?: string;
   link?: string;
+  Download_Now?: string;
 };
 
-export default function CTABlock({ title, subtitle, button_label, button_url, link }: CTABlockProps) {
+export default function CTABlock({ title, subtitle, button_url, link, Download_Now }: CTABlockProps) {
   if (!title && !subtitle) return null;
   return (
     <section className="bg-[#c41e7f] text-white py-16 px-6 text-center">
@@ -19,7 +19,7 @@ export default function CTABlock({ title, subtitle, button_label, button_url, li
           href={button_url || link || ""}
           className="inline-block bg-white text-[#c41e7f] font-bold px-10 py-4 rounded-full hover:bg-gray-100"
         >
-          {button_label || "Download Now"}
+          {Download_Now || "Download Now"}
         </Link>
       )}
     </section>
