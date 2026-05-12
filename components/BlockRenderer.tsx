@@ -7,39 +7,34 @@ import SpacerBlock from "./blocks/SpacerBlock";
 import DividerBlock from "./blocks/DividerBlock";
 import ImageTextBlock from "./blocks/ImageTextBlock";
 import FormBlock from "./blocks/FormBlock";
+import NewsletterBlock from "./blocks/NewsletterBlock";
 
 export default function BlockRenderer({ block }: { block: any }) {
   switch (block.block_type) {
     case "hero":
       return <HeroBlock {...block} />;
-
     case "text":
       return <TextBlock {...block} />;
-
     case "image":
       return <ImageBlock {...block} />;
-
     case "image_text":
       return <ImageTextBlock {...block} />;
-
     case "form":
       return <FormBlock {...block} />;
-
+    case "newsletter":
+      return <NewsletterBlock />;
     case "icon_grid": {
-      // Parse JSON content if it's a string
       let parsedContent = block.content;
       if (typeof block.content === 'string') {
         try {
-          // Strip HTML tags and decode entities
           let cleanContent = block.content
-            .replace(/<[^>]*>/g, '') // Remove HTML tags
-            .replace(/&nbsp;/g, ' ') // Replace &nbsp; with space
-            .replace(/&amp;/g, '&')  // Replace &amp; with &
-            .replace(/&lt;/g, '<')   // Replace &lt; with <
-            .replace(/&gt;/g, '>')   // Replace &gt; with >
-            .replace(/&quot;/g, '"') // Replace &quot; with "
+            .replace(/<[^>]*>/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
             .trim();
-          
           parsedContent = JSON.parse(cleanContent);
         } catch (e) {
           console.error('Failed to parse icon_grid content:', e, block.content);
@@ -48,18 +43,13 @@ export default function BlockRenderer({ block }: { block: any }) {
       }
       return <IconGridBlock heading={block.title} {...parsedContent} />;
     }
-
     case "cta":
       return <CTABlock {...block} />;
-
     case "spacer":
       return <SpacerBlock {...block} />;
-
     case "divider":
       return <DividerBlock />;
-
     default:
       return null;
   }
 }
-
