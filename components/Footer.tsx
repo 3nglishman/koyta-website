@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 export default function Footer() {
   return (
     <footer className="w-full bg-[#cc007e] text-white py-8 md:py-12 px-4 md:px-6">
@@ -40,16 +39,14 @@ export default function Footer() {
           <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Navigation</h3>
           <ul className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
             <li><Link href="/" className="hover:text-[#cca300]">Home</Link></li>
-            <li><Link href="/about" className="hover:text-[#cca300]">About</Link></li>
-            <li><Link href="/services" className="hover:text-[#cca300]">Services</Link></li>
-            <li><Link href="/get-involved" className="hover:text-[#cca300]">Get Involved</Link></li>
-            <li><Link href="/contact" className="hover:text-[#cca300]">Contact</Link></li>
-            <li><Link href="/legal-notice" className="hover:text-[#cca300]">Legal Notice</Link></li>
-            <li><Link href="/privacy-policy" className="hover:text-[#cca300]">Privacy Policy</Link></li>
+            <li><Link href="/the-kipsigis" className="hover:text-[#cca300]">The Kipsigis</Link></li>
+            <li><Link href="/projects" className="hover:text-[#cca300]">Projects</Link></li>
+            <li><Link href="/volunteer" className="hover:text-[#cca300]">Volunteer</Link></li>
+            <li><Link href="/our-mission" className="hover:text-[#cca300]">Our Mission</Link></li>
           </ul>
         </div>
 
-       {/* Social Media Column */}
+        {/* Social Media Column */}
         <div className="w-full min-w-0">
           <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Social media</h3>
           <ul className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
@@ -70,6 +67,8 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+
+      </div>
     </footer>
   );
 }
