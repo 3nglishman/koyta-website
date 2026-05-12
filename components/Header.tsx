@@ -21,10 +21,13 @@ export default function Header() {
           <Link href="/our-mission" className="text-gray-800 hover:text-[#c41e7f] font-medium">
             Our Mission
           </Link>
+          <Link href="/about" className="text-gray-800 hover:text-[#c41e7f] font-medium">
+            About
+          </Link>
         </div>
 
         {/* Right Navigation */}
-        <a 
+        
           href="https://donate.stripe.com/8x23cx0DQ4RUaDN63i57W00"
           target="_blank"
           rel="noopener noreferrer"
