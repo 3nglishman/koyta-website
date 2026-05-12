@@ -50,25 +50,23 @@ export default function Footer() {
         </div>
 
         {/* Social Media Column */}
-        <div className="w-full min-w-0">
-          <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Social media</h3>
-          <ul className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
-            <li>
-              <a href="https://facebook.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
-                <span className="text-xs md:text-base">📘</span> <span>Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
-                <span className="text-xs md:text-base">✖️</span> <span>X</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com/koyta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
-                <span className="text-xs md:text-base">📷</span> <span>Instagram</span>
-              </a>
-            </li>
-          </ul>
+        <ul className="space-y-0.5 md:space-y-1 text-[10px] md:text-xs lg:text-sm">
+  <li>
+    <a href="https://www.facebook.com/profile.php?id=61589791490274" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
+      <span className="text-xs md:text-base">📘</span> <span>Facebook</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://x.com/Koytahope" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
+      <span className="text-xs md:text-base">✖️</span> <span>X</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.instagram.com/koyta.hope/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 md:gap-2 hover:text-[#cca300]">
+      <span className="text-xs md:text-base">📷</span> <span>Instagram</span>
+    </a>
+  </li>
+</ul>
         </div>
 
       </div>
