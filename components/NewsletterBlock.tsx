@@ -11,8 +11,7 @@ export default function NewsletterBlock() {
           frameBorder="0"
           scrolling="auto"
           allowFullScreen
-          className="mx-auto"
-          style={{display: 'block', maxWidth: '600px'}}
+          style={{display: 'block', maxWidth: '600px', margin: '0 auto'}}
         />
       </div>
     </section>
