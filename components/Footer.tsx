@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#cc007e] text-white py-8 md:py-12 px-4 md:px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-4 gap-4 md:gap-8 lg:gap-12">
-        
+
         {/* Legal Notice Column */}
         <div className="w-full min-w-0">
           <h3 className="text-[#cca300] text-sm md:text-lg lg:text-xl font-bold mb-2 md:mb-3 lg:mb-4">Legal Notice</h3>
@@ -12,8 +12,8 @@ export default function Footer() {
               Koyta Hope & Rift Initiative is a nonprofit organization legally incorporated in Canada under the Canada Not-for-profit Corporations Act (CNCA).
             </p>
             <p>Legal Name: Koyta Hope & Rift Initiative</p>
-            <Link 
-              href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=14113086&V_TOKEN=null&crpNm=&crpNmbr=1747730-9&bsNmbr=" 
+            <Link
+              href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=14113086&V_TOKEN=null&crpNm=&crpNmbr=1747730-9&bsNmbr="
               target="_blank"
               className="inline-block underline hover:text-[#cca300] break-words"
             >
@@ -43,6 +43,7 @@ export default function Footer() {
             <li><Link href="/projects" className="hover:text-[#cca300]">Projects</Link></li>
             <li><Link href="/volunteer" className="hover:text-[#cca300]">Volunteer</Link></li>
             <li><Link href="/our-mission" className="hover:text-[#cca300]">Our Mission</Link></li>
+            <li><Link href="/about" className="hover:text-[#cca300]">About</Link></li>
           </ul>
         </div>
 
