@@ -45,6 +45,6 @@ export default async function HomePage() {
                       .map((block: any) => (
                                   <BlockRenderer key={block.id} block={block} />
                                 ))}
-          </main>main>
+          </main>
         );
-}</h1>
+}<
