@@ -23,18 +23,18 @@ export default async function HomePage() {
   if (!page) {
         return (
                 <main style={{ padding: 40 }}>
-                          <h1>Coming Back Soon</h1>h1>
-                        <p>We are experiencing a temporary issue. Please check back shortly.</p>p>
-                </main>main>
+                          <h1>Coming Back Soon</h1>
+                        <p>We are experiencing a temporary issue. Please check back shortly.</p>
+                </main>
               );
   }
   
     if (!page.blocks || page.blocks.length === 0) {
           return (
                   <main style={{ padding: 40 }}>
-                          <h1>No blocks found</h1>h1>
-                          <p>Page exists but has no blocks</p>p>
-                  </main>main>
+                          <h1>No blocks found</h1>
+                          <p>Page exists but has no blocks</p>
+                  </main>
                 );
     }
   
