@@ -27,7 +27,7 @@ const DEFAULT_PUBLICATIONS: Publication[] = [
       "A story of land, labour, and what happens when someone decides to change the ending. The Kipsigis people of Kericho County — who they are, what was taken, and why it still matters.",
     image: "4994278e-a03a-4795-9b38-29afc17523c6",
     pdf_url:
-      "https://cms.koyta.org/assets/c797dc59-707f-4425-999b-081fc7ae8508.pdf",
+      "https://cms.koyta.org/assets/ec73f781-0b40-4a00-b9eb-d6ff4b4b45f7.pdf",
     live: true,
   },
   {
