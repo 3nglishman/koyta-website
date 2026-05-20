@@ -174,7 +174,7 @@ export default function PublicationsBlock({
           <span className="font-sans text-xs italic text-gray-400">
             Five publications. One story. Updated as each is released.
           </span>
-          
+          <a
             href={zeffy_url}
             target="_blank"
             rel="noopener noreferrer"
