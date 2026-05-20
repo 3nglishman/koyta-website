@@ -75,14 +75,15 @@ export default function PublicationsBlock({
           {hero && (
             <div className="md:col-span-2 border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200">
               {hero.image && (
-                <div className="relative w-full h-56 md:h-72">
+            
                   <Image
                     src={`${DIRECTUS_URL}/assets/${hero.image}`}
                     alt={hero.title}
-                    fill
-                    className="object-cover"
+                    width={900}
+                    height={450}
+                    className="w-full h-auto"
                   />
-                </div>
+            
               )}
               <div className="p-6">
                 <span className="block font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E] mb-2">
