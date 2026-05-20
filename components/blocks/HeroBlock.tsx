@@ -10,16 +10,18 @@ export default function HeroBlock(block: any) {
   if (!image) return null;
 
   return (
-    <section className="relative w-full overflow-hidden">
-      <Image
-        src={`${DIRECTUS_URL}/assets/${image}`}
-        alt={title || ""}
-        width={1920}
-        height={1077}
-        className="w-full h-auto"
-        sizes="100vw"
-        priority
-      />
+<section className="relative w-full">
+ <div className="relative w-full">
+  <Image
+     src={`${DIRECTUS_URL}/assets/${image}`}
+     alt={title || ""}
+     width={1920}
+     height={1077}
+     className="w-full h-auto block"
+     sizes="100vw"
+     priority
+    />
+  </div>
       {(title || subtitle) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
           {title && <h1 className="text-5xl font-bold">{title}</h1>}
