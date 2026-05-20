@@ -10,12 +10,12 @@ export default function HeroBlock(block: any) {
   if (!image) return null;
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full overflow-hidden">
       <Image
         src={`${DIRECTUS_URL}/assets/${image}`}
         alt={title || ""}
         width={1920}
-        height={1080}
+        height={1077}
         className="w-full h-auto"
         sizes="100vw"
         priority
