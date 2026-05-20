@@ -33,7 +33,7 @@ const DEFAULT_PUBLICATIONS: Publication[] = [
     title: "The Tea Picker's Hands",
     description:
       "A story of land, labour, and what happens when someone decides to change the ending. The Kipsigis people of Kericho County — who they are, what was taken, and why it still matters.",
-    image: "05a195c9-e29e-4b89-b58e-97dcf5dbf054",
+    image: "4994278e-a03a-4795-9b38-29afc17523c6",
     pdf_url: "https://cms.koyta.org/assets/ec73f781-0b40-4a00-b9eb-d6ff4b4b45f7.pdf",
     live: true,
   },
