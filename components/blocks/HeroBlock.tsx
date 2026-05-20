@@ -18,6 +18,7 @@ export default function HeroBlock(block: any) {
         height={600}
         className="w-full h-auto"
         priority
+        sizes="100vw"
       />
       {(title || subtitle) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
