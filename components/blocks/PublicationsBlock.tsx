@@ -224,7 +224,7 @@ export default function PublicationsBlock({
               {pub.description}
             </p>
             {pub.pdf_url && (
-              
+              <a
                 href={pub.pdf_url}
                 target="_blank"
                 rel="noopener noreferrer"
