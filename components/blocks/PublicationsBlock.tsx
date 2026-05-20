@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const DIRECTUS_URL = "https://cms.koyta.org";
 
@@ -12,10 +11,19 @@ type Publication = {
   live: boolean;
 };
 
+type StandalonePublication = {
+  title: string;
+  description: string;
+  image?: string;
+  pdf_url?: string;
+  label?: string;
+};
+
 type PublicationsBlockProps = {
   heading?: string;
   series_label?: string;
   publications?: Publication[];
+  standalones?: StandalonePublication[];
   zeffy_url?: string;
 };
 
@@ -25,9 +33,8 @@ const DEFAULT_PUBLICATIONS: Publication[] = [
     title: "The Tea Picker's Hands",
     description:
       "A story of land, labour, and what happens when someone decides to change the ending. The Kipsigis people of Kericho County — who they are, what was taken, and why it still matters.",
-    image: "4994278e-a03a-4795-9b38-29afc17523c6",
-    pdf_url:
-      "https://cms.koyta.org/assets/ec73f781-0b40-4a00-b9eb-d6ff4b4b45f7.pdf",
+    image: "05a195c9-e29e-4b89-b58e-97dcf5dbf054",
+    pdf_url: "https://cms.koyta.org/assets/ec73f781-0b40-4a00-b9eb-d6ff4b4b45f7.pdf",
     live: true,
   },
   {
@@ -46,10 +53,22 @@ const DEFAULT_PUBLICATIONS: Publication[] = [
   },
 ];
 
+const DEFAULT_STANDALONES: StandalonePublication[] = [
+  {
+    title: "Public Supporter Edition 2026",
+    description:
+      "An Integrated Rural Enterprise Model for Kericho County, Kenya. For donors, partners, supporters, and implementers.",
+    image: "bf338543-f76c-49af-9f93-f1831f3450f0",
+    pdf_url: "https://cms.koyta.org/assets/c797dc59-707f-4425-999b-081fc7ae8508.pdf?download",
+    label: "2026 Edition",
+  },
+];
+
 export default function PublicationsBlock({
   heading = "The Kipsigis Story",
   series_label = "A series of five publications by Koyta Hope & Rift Initiative",
   publications = DEFAULT_PUBLICATIONS,
+  standalones = DEFAULT_STANDALONES,
   zeffy_url = "https://www.zeffy.com/en-CA/donation-form/pamoja-tunainuka-tena-rising-together-in-the-rift-valley",
 }: PublicationsBlockProps) {
   const [hero, ...rest] = publications;
@@ -58,7 +77,7 @@ export default function PublicationsBlock({
     <section className="w-full py-12 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
 
-        {/* Section header */}
+        {/* Series header */}
         <div className="flex items-baseline gap-4 border-b-2 border-[#CC007E] pb-3 mb-8">
           <h2 className="font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E]">
             {heading}
@@ -68,22 +87,21 @@ export default function PublicationsBlock({
           </span>
         </div>
 
-        {/* Grid — hero left, two smaller cards right */}
+        {/* Series grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* Hero card */}
           {hero && (
             <div className="md:col-span-2 border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200">
               {hero.image && (
-            
-                  <Image
-                    src={`${DIRECTUS_URL}/assets/${hero.image}`}
-                    alt={hero.title}
-                    width={900}
-                    height={450}
-                    className="w-full h-auto"
-                  />
-            
+                <Image
+                  src={`${DIRECTUS_URL}/assets/${hero.image}`}
+                  alt={hero.title}
+                  width={900}
+                  height={450}
+                  className="w-full h-auto block"
+                  sizes="100vw"
+                />
               )}
               <div className="p-6">
                 <span className="block font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E] mb-2">
@@ -96,7 +114,7 @@ export default function PublicationsBlock({
                   {hero.description}
                 </p>
                 {hero.pdf_url && (
-                  <a
+                  
                     href={hero.pdf_url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -156,7 +174,7 @@ export default function PublicationsBlock({
           <span className="font-sans text-xs italic text-gray-400">
             Five publications. One story. Updated as each is released.
           </span>
-          <a
+          
             href={zeffy_url}
             target="_blank"
             rel="noopener noreferrer"
@@ -166,7 +184,64 @@ export default function PublicationsBlock({
           </a>
         </div>
 
+        {/* Standalone publications */}
+        {standalones && standalones.length > 0 && (
+          <>
+            <div className="flex items-baseline gap-4 border-b-2 border-[#CC007E] pb-3 mt-16 mb-8">
+              <h2 className="font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E]">
+                Additional Publications
+              </h2>
+              <span className="font-serif text-xs italic text-gray-400">
+                Standalone reports and resources from Koyta Hope & Rift Initiative
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {standalones.map((pub, i) => (
+                <div
+                  key={i}
+                  className="border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200"
+                >
+                  {pub.image && (
+                    <Image
+                      src={`${DIRECTUS_URL}/assets/${pub.image}`}
+                      alt={pub.title}
+                      width={600}
+                      height={800}
+                      className="w-full h-auto block"
+                    />
+                  )}
+                  <div className="p-5">
+                    {pub.label && (
+                      <span className="block font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E] mb-2">
+                        {pub.label}
+                      </span>
+                    )}
+                    <h3 className="font-serif text-lg font-bold text-gray-900 mb-2">
+                      {pub.title}
+                    </h3>
+                    <p className="font-serif text-xs text-gray-600 leading-relaxed mb-4">
+                      {pub.description}
+                    </p>
+                    {pub.pdf_url && (
+                      
+                        href={pub.pdf_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-[#CC007E] text-white font-sans text-xs font-bold tracking-widest uppercase px-5 py-2 hover:bg-[#a80068] transition-colors duration-200"
+                      >
+                        Download &amp; Read
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
       </div>
     </section>
   );
+}
 }
