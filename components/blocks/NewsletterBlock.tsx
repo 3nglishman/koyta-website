@@ -20,7 +20,7 @@ export default function NewsletterBlock() {
           {mounted && (
             <iframe
               width="100%"
-              height="340"
+              height="440"
               src="https://2860e11e.sibforms.com/serve/MUIFAI7zyaIomdii1Htm8MR9yaJZWTob9pBDoA6CXOYB7isnzrzNsk36Amw_tU1pX6ONyWWpYhEwrgreMfz6WehtU86XbV2x562OwCvZn_sIbmEn9WLmd3YTYx6Kh-9GrUzxqseE2Z1KbBB6ErbBV0Ha6-ea3TBbnubFgDtVPdBG5eK357c-ehJlHUZuXadYWa9W0mVvPiPUIfxiWg=="
               frameBorder="0"
               scrolling="no"
