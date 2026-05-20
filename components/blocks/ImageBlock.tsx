@@ -18,7 +18,7 @@ export default function ImageBlock({ image, caption, link }: ImageBlockProps) {
       alt={caption || ""}
       width={1920}
       height={1080}
-      className="w-full h-auto"
+      className="w-full h-auto block"
       priority={false}
       sizes="100vw"
     />
