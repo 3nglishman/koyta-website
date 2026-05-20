@@ -11,6 +11,7 @@ type ImageBlockProps = {
 
 export default function ImageBlock({ image, caption, link }: ImageBlockProps) {
   if (!image) return null;
+
   const imageElement = (
     <Image
       src={`${DIRECTUS_URL}/assets/${image}`}
@@ -19,8 +20,10 @@ export default function ImageBlock({ image, caption, link }: ImageBlockProps) {
       height={1080}
       className="w-full h-auto"
       priority={false}
+      sizes="100vw"
     />
   );
+
   return (
     <section className="w-full">
       <div className="relative w-full">
