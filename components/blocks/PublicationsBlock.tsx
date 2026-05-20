@@ -185,57 +185,62 @@ export default function PublicationsBlock({
         </div>
 
         {/* Standalone publications */}
-{standalones && standalones.length > 0 && (
-  <>
-    <div className="flex items-baseline gap-4 border-b-2 border-[#CC007E] pb-3 mt-16 mb-8">
-      <h2 className="font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E]">
-        Additional Publications
-      </h2>
-      <span className="font-serif text-xs italic text-gray-400">
-        Standalone reports and resources from Koyta Hope & Rift Initiative
-      </span>
-    </div>
-
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      {standalones.map((pub, i) => (
-        <div
-          key={i}
-          className="border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200"
-        >
-          {pub.image && (
-            <Image
-              src={`${DIRECTUS_URL}/assets/${pub.image}`}
-              alt={pub.title}
-              width={300}
-              height={400}
-              className="w-full h-auto block"
-            />
-          )}
-          <div className="p-3">
-            {pub.label && (
-              <span className="block font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E] mb-1">
-                {pub.label}
+        {standalones && standalones.length > 0 && (
+          <>
+            <div className="flex items-baseline gap-4 border-b-2 border-[#CC007E] pb-3 mt-16 mb-8">
+              <h2 className="font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E]">
+                Additional Publications
+              </h2>
+              <span className="font-serif text-xs italic text-gray-400">
+                Standalone reports and resources from Koyta Hope &amp; Rift Initiative
               </span>
-            )}
-            <h3 className="font-serif text-sm font-bold text-gray-900 mb-1">
-              {pub.title}
-            </h3>
-            <p className="font-serif text-xs text-gray-600 leading-relaxed mb-3">
-              {pub.description}
-            </p>
-            {pub.pdf_url && (
-              <a
-                href={pub.pdf_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#CC007E] text-white font-sans text-xs font-bold tracking-widest uppercase px-3 py-2 hover:bg-[#a80068] transition-colors duration-200"
-              >
-                Download &amp; Read
-              </a>
-            )}
-          </div>
-        </div>
-      ))}
-    </div>
-  </>
-)}
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {standalones.map((pub, i) => (
+                <div
+                  key={i}
+                  className="border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200"
+                >
+                  {pub.image && (
+                    <Image
+                      src={`${DIRECTUS_URL}/assets/${pub.image}`}
+                      alt={pub.title}
+                      width={300}
+                      height={400}
+                      className="w-full h-auto block"
+                    />
+                  )}
+                  <div className="p-3">
+                    {pub.label && (
+                      <span className="block font-sans text-xs font-bold tracking-widest uppercase text-[#CC007E] mb-1">
+                        {pub.label}
+                      </span>
+                    )}
+                    <h3 className="font-serif text-sm font-bold text-gray-900 mb-1">
+                      {pub.title}
+                    </h3>
+                    <p className="font-serif text-xs text-gray-600 leading-relaxed mb-3">
+                      {pub.description}
+                    </p>
+                    {pub.pdf_url && (
+                      <a
+                        href={pub.pdf_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-[#CC007E] text-white font-sans text-xs font-bold tracking-widest uppercase px-3 py-2 hover:bg-[#a80068] transition-colors duration-200"
+                      >
+                        Download &amp; Read
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+      </div>
+    </section>
+  );
+}
