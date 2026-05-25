@@ -1,22 +1,24 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import Script from 'next/script'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Koyta Hope & Rift Initiative',
-  description: 'Empowering Kipsigis communities in Kenya\'s Rift Valley',
-}
+  description: 'Where Love Is Sown, Hope Is Grown',
+};
 
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-}
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <head />
-      <body>
+      <body className="w-full overflow-x-hidden bg-[#faf8f5]">
+        <Header />
+        {children}
+        <Footer />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HZH5G7JQK2"
           strategy="afterInteractive"
@@ -29,7 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-HZH5G7JQK2');
           `}
         </Script>
-        {children}
       </body>
     </html>
   )
