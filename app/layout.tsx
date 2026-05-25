@@ -1,4 +1,15 @@
+import type { Metadata } from 'next'
 import Script from 'next/script'
+
+export const metadata: Metadata = {
+  title: 'Koyta Hope & Rift Initiative',
+  description: 'Empowering Kipsigis communities in Kenya\'s Rift Valley',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
